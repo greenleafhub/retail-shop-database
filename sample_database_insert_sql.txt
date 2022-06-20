@@ -1,0 +1,305 @@
+CREATE DATABASE Comp7640_Proj;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Shops tbl
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE Comp7640_Proj.Shops (	shop_id    CHAR(20),
+									shop_name  CHAR(40),
+									rating     INTEGER,
+									location   CHAR(50),
+									PRIMARY KEY (shop_id) );
+                    
+INSERT  INTO Comp7640_Proj.Shops VALUES ('S0001','Shop A',3,'MacLehose Trail Section 2');
+INSERT  INTO Comp7640_Proj.Shops VALUES ('S0002','Shop B',4,'City Circuit, TVB City');
+INSERT  INTO Comp7640_Proj.Shops VALUES ('S0003','Shop C',8,'Fung Kat Heung Road');
+INSERT  INTO Comp7640_Proj.Shops VALUES ('S0004','Shop D',6,'Bernard Squares*');
+INSERT  INTO Comp7640_Proj.Shops VALUES ('S0005','Shop E',3,'Fanling Bypass');
+INSERT  INTO Comp7640_Proj.Shops VALUES ('S0006','Shop F',2,'Cheung Sheung Country Trail');
+
+SELECT * FROM Comp7640_Proj.Shops;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Items_Sell tbl        
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------             
+
+CREATE TABLE Comp7640_Proj.Items_Sell (	item_id     CHAR(20),
+										item_name   CHAR(100),
+										price       FLOAT(2),
+										stock_qty   INTEGER,
+										keyword1    CHAR(100),
+										keyword2    CHAR(100),
+										keyword3    CHAR(100),
+										shop_id     CHAR(20) NOT NULL,
+										PRIMARY KEY (item_id),
+										FOREIGN KEY (shop_id) REFERENCES Shops(shop_id)
+												ON DELETE NO ACTION );
+                                                
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0001','Betrayals Sting',90,2,'1v1 lol unblocked','covid test near me','russia','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0002','Deaths Kiss',60,60,'lol','rapid covid testing near me','peter iii of russia','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0003','Swiftwind',50,0,'lol dolls','covid testing near me','russia news','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0004','Driftwood Reflex Bow',10,80,'1v1 lol','cvs covid test','from russia with love','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0005','Yew Flatbow',40,70,'lol reddit','cvs covid vaccine','russia ukraine','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0006','Strikers Bronzed Striker',10,30,'lol surprise','covid vaccine near me','russia map','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0007','Barbaric Driftwood Compound Bow',20,40,'lol esports','covid-19','st petersburg russia','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0008','Razorsong, Kiss of the Caged Mind',30,0,'reddit lol','cvs covid testing','russia population','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0009','Courier, Bolter of Echoes',50,60,'lol doll house','covid vaccine','russia flag','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0010','Betrayals Sting, Warp-Bow of Chaos',40,0,'lol surprise dolls','covid testing','why does russia want ukraine','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0001I0011','Last Whisper',50,20,'lol tier list','covid 19 vaccine','paul i of russia','S0001');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0002I0001','Drawback',20,70,'warwick lol','free covid test near me','map of russia','S0002');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0002I0002','Special Delivery',50,10,'lol patch notes','rite aid covid test','ukraine russia','S0002');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0002I0003','Skeletal Striker',20,80,'r lol','free covid testing near me','how many time zones in russia','S0002');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0002I0004','Yew Hunting Bow',30,60,'1v1 lol unblocked 76','covid symptoms','what continent is russia in','S0002');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0002I0005','Dawnlight',30,10,'vi lol','walgreens covid vaccine','population of russia','S0002');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0002I0006','Labyrinth',20,80,'lol doll','covid 19 testing near me','moscow russia','S0002');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0001','Crucifix',70,30,'lol beans','rapid covid test near me','grand duchess anastasia nikolaevna of russia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0002','Scar',30,0,'lpl lol','covid rapid test near me','trump russia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0003','Storm Satchel',60,40,'lol omg dolls','covid-19 vaccine','capital of russia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0004','Defenders Knapsack',60,60,'lol toys','covid vaccine side effects','is russia in asia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0005','Arcane Chalice',20,10,'lol worlds','free covid test','russia today','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0006','Sunshard, Executioner of the Burning Sun',30,30,'lol meaning','india covid','russia military','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0007','Phantomlight, Paragon of Trials',30,30,'lol name checker','covid 19 symptoms','is russia communist','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0008','Fluke, Dawn of the Daywalker',60,80,'lol coloring pages','covid 19 test','russia military news','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0009','Omega',60,40,'unblocked 1v1 lol','covid test','nuclear war with china, russia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0010','Boomer',0,90,'lol hentai','covid bews','russia gdp','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0011','Moonsight',90,90,'msi lol','same day results covid testing near me','russia olympics','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0012','Wardens Repeater',70,30,'lol movie','free covid testing','is ukraine in russia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0013','Reforged Shooter',90,50,'lol meme','rapid covid test','the russia house','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0003I0014','Exiled Chromed Carbine',80,10,'lol house','covid tracker','nicholas ii of russia','S0003');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0004I0001','War-Forged Obsidian Sniper',50,10,'queen bee lol doll','rapid results covid testing near me','alexei nikolaevich tsarevich of russia','S0004');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0004I0002','Perfect Storm, Dawn Of Echoes',30,90,'what does lol mean','can you get covid twice','russia protests','S0004');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0004I0003','Knightfall, Soul Of The Queen',40,10,'lol beans io','cvs covid tests','fps russia','S0004');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0004I0004','Eclipse, Ferocity Of Dark Magic',40,20,'lol bean','nyc covid','is russia in europe','S0004');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0004I0005','Oblivion',70,60,'ash on lol','covid vaccination card','where is russia','S0004');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0001','Glimmer',10,0,'just fall lol','cvs covid vaccine appointment','russia and china','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0002','Chaos',70,80,'lol lol','covid vaccine appointment','russia sleep','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0003','Defiled Greataxe',0,50,'lol emoji','symptoms of covid','mother russia','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0004','Hopeless Maul',30,20,'lol omg','covid nyc','what type of government is russia','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0005','Glinting Bone War Axe',80,50,'lol champions','how long does covid last.','how many time zones does russia have','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0006','Cursed Bone Dualblade',90,40,'jinx lol','covid 19','christmas in russia','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0007','Trinity, Annihilation of the Empty Void',0,80,'lol surprise house','sore throat covid','russia invading ukraine','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0008','Ashrune, Bringer of Desecration',60,60,'jayce lol','side effects of covid vaccine','russia war','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0009','Corruption, Etcher of the Phoenix',80,20,'ash on lol face','pcr covid test','st petersburg russia weather','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0010','Thunder',20,20,'1 v1 lol','15 minute covid test near me','russia weather','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0011','Fist of Life',70,50,'1v1 lol unblocked games 76','how long are you contagious with covid','sochi russia','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0012','Hand of Misery',40,60,'lol porn','urgent care covid testing','grand duchess maria nikolaevna of russia','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0013','Venom Grasp',50,50,'lol 1v1','covid 19 vaccine near me','blue dogs russia','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0014','Hand of Misery',80,50,'lol gif','covid news','katainaka ni totsui de kita russia musume to h shimakuru ohanashi','S0005');
+INSERT  INTO Comp7640_Proj.Items_Sell VALUES ('S0005I0015','Venom Grasp',40,80,'que significa lol','how long are you contagious with covid','russia and ukraine','S0005');
+
+SELECT * FROM Comp7640_Proj.Items_Sell;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Customers tbl        
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE Comp7640_Proj.Customers ( customer_id  CHAR(20),
+									   tel_no       INTEGER(8),
+									   addr         CHAR(200),
+									   PRIMARY KEY (customer_id) );
+                        
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0001',24816188,'Rm 618 6 / F Hollywood Plaza,610 Nathan Road,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0002',25422016,'Rm.2303 23/F. 1 Harbour Rd. Wanchai,Wan Chai District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0003',26135778,'Flat F15/F. Wah Lik Industrial Center 459-469 Castle Peak Road N. T.,Tsuen Wan District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0004',25755174,'San Po Kong,Wong Tai Sin District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0005',27873171,'Unit A (05) 9 / F Van Fat Factory Building 20-22 Ng Fong St. Sanpokong Kowloon Hong Kong.,Kowloon City District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0006',23013002,'Flat A 30 / F. Tower 1 139 Castle Peak Road Ping Shan Nt,Sham Shui Po District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0007',23420123,'Unit C 14/F. Yun Tat Comm. Bldg. 70-74 Wuhu Street Hung Hom,Yau Tsim Mong District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0008',28918007,'Flat 922/F. Fullagar Ind. Bldg. No.234 Aberdeen Main Rd. Aberdeen,Southern District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0009',26740721,'55 Hoi Yuen Rd.,Hong Kong,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0010',27596536,'Rm. 3708 37/F 118 Connaught Road West,Central and Western District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0011',27803181,'1209-1218 Miramar Tower131-132 Nathan Road,Yau Tsim Mong District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0012',27511899,'Unit A (05) 9 / F Van Fat Factory Building 20-22 Ng Fong St. Sanpokong Kowloon Hong Kong.,Kowloon City District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0013',27243388,'Flat 922/F. Fullagar Ind. Bldg. No.234 Aberdeen Main Rd. Aberdeen,Southern District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0014',24232221,'Flat 922/F. Fullagar Ind. Bldg. No.234 Aberdeen Main Rd. Aberdeen,Southern District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0015',25240036,'Rm12. 3/Fl. No2 Kai Hing Road Kowloon Bay,Kowloon City District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0016',25201517,'13/F. Englong Commercial Building 184 Nathan Road. Tst Kowloon,Kowloon City District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0017',28953389,'Kwai Fung Crescent,Kwai Tsing District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0018',25568172,'Room 330333/F Singga Commercial Center144-151 Connaught Road West,Central and Western District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0019',23257977,'Unit C 10th Floor Block 1 Royal Ascot1 Tsun King Road Shatin,Eastern District,Hongkong');
+INSERT INTO Comp7640_Proj.Customers VALUES ('C0020',25439322,'Room 607 6 / F. Yen Sheng Centre 64 Hoi Yuen Road,Kwun Tong District,Hongkong');                        
+
+SELECT * FROM Comp7640_Proj.Customers;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Orders_Purchase tbl  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE Comp7640_Proj.Orders_Purchase ( order_id       CHAR(20),
+										     customer_id    CHAR(20) NOT NULL,
+										     PRIMARY KEY (order_id),
+										     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+												     ON DELETE NO ACTION );
+													
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0001','C0007');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0002','C0005');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0003','C0016');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0004','C0007');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0005','C0007');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0006','C0015');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0007','C0003');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0008','C0013');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0009','C0012');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0010','C0005');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0011','C0012');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0012','C0012');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0013','C0015');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0014','C0007');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0015','C0008');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0016','C0005');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0017','C0010');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0018','C0007');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0019','C0018');
+INSERT INTO Comp7640_Proj.Orders_Purchase VALUES ('O0020','C0015');
+
+SELECT * FROM Comp7640_Proj.Orders_Purchase;
+   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Transactions tbl  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE Comp7640_Proj.Transactions ( order_id 		CHAR(20),
+										  item_id 		CHAR(20),
+										  order_qty 	INTEGER NOT NULL,
+										  PRIMARY KEY (order_id, item_id),
+                                          FOREIGN KEY (order_id) REFERENCES Orders_Purchase(order_id)
+												  ON DELETE CASCADE,
+                                          FOREIGN KEY (item_id) REFERENCES Items_Sell(item_id)
+												  ON DELETE NO ACTION );
+                         
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0001','S0001I0010',1);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0001','S0001I0011',2);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0001','S0002I0001',1);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0001','S0002I0002',1);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0002','S0002I0003',2);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0003','S0001I0001',3);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0003','S0001I0002',4);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0003','S0001I0003',5);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0003','S0001I0004',1);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0003','S0003I0007',7);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0004','S0003I0008',3);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0005','S0003I0009',3);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0006','S0003I0010',3);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0007','S0003I0011',2);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0008','S0005I0006',6);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0009','S0005I0007',1);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0010','S0005I0008',2);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0011','S0005I0009',3);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0012','S0001I0011',4);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0013','S0002I0001',7);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0014','S0002I0002',8);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0015','S0002I0003',8);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0016','S0002I0004',9);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0017','S0001I0003',12);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0018','S0001I0004',3);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0019','S0001I0005',2);
+INSERT INTO Comp7640_Proj.Transactions VALUES ('O0020','S0001I0006',2);                                
+                          
+SELECT * FROM Comp7640_Proj.Transactions;						  
+
+
+
+-- Trigger Stock Checking
+
+USE Comp7640_Proj;
+
+DELIMITER $$
+CREATE TRIGGER stock_check_insert
+BEFORE INSERT ON Comp7640_Proj.Transactions
+FOR EACH ROW
+BEGIN 
+DECLARE
+	a INTEGER;
+SELECT stock_qty into a FROM Comp7640_Proj.Items_Sell
+	WHERE item_id = NEW.item_id;
+    IF (a = 0) THEN
+		SIGNAL SQLSTATE	'45000' SET MESSAGE_TEXT = 'Sorry! We have run out of Stock.';
+	ELSE IF (a < new.order_qty) THEN
+		SIGNAL SQLSTATE	'45000' SET MESSAGE_TEXT = 'Sorry! We do not have enough stock to fulfill your order.';
+        END IF;
+	END IF;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER stock_check_update
+BEFORE UPDATE ON Comp7640_Proj.Transactions
+FOR EACH ROW
+BEGIN 
+DECLARE
+	a INTEGER;
+SELECT stock_qty into a FROM Comp7640_Proj.Items_Sell
+	WHERE item_id = NEW.item_id;
+	IF (a = 0) THEN
+		SIGNAL SQLSTATE	'45000' SET MESSAGE_TEXT = 'Sorry! We have run out of Stock.';
+	ELSE IF (a < new.order_qty) THEN
+		SIGNAL SQLSTATE	'45000' SET MESSAGE_TEXT = 'Sorry! We do not have enough stock to fulfill your order.';
+        END IF;
+	END IF;
+END$$
+DELIMITER ;
+
+
+-- Trigger Stock Update
+                     
+DELIMITER $$
+CREATE TRIGGER stock_update_insert
+AFTER INSERT ON Comp7640_Proj.Transactions
+FOR EACH ROW
+BEGIN 
+DECLARE
+	a INTEGER;
+SELECT stock_qty into a FROM Comp7640_Proj.Items_Sell
+	WHERE item_id = NEW.item_id;
+	IF (a >= NEW.order_qty) THEN
+		UPDATE Comp7640_Proj.Items_Sell SET stock_qty = stock_qty - NEW.order_qty
+		WHERE item_id = NEW.item_id;
+	END IF;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER stock_update_update
+AFTER UPDATE ON Comp7640_Proj.Transactions
+FOR EACH ROW
+BEGIN 
+DECLARE a INTEGER;
+DECLARE b INTEGER;    
+SELECT stock_qty into a FROM Comp7640_Proj.Items_Sell
+	WHERE item_id = NEW.item_id;
+	IF (OLD.order_qty != NEW.order_qty) THEN
+		SET b = NEW.order_qty - OLD.order_qty;
+		UPDATE Comp7640_Proj.Items_Sell SET stock_qty = stock_qty - b
+		WHERE item_id = NEW.item_id;
+	END IF;
+END$$
+DELIMITER ;
+
+-- Trigger Order Cancelling
+
+DELIMITER $$
+CREATE TRIGGER order_cancel
+AFTER DELETE ON Comp7640_Proj.Transactions
+FOR EACH ROW
+BEGIN 
+DECLARE
+	a INTEGER;
+SELECT stock_qty into a FROM Comp7640_Proj.Items_Sell
+	WHERE item_id = OLD.item_id;
+		UPDATE Comp7640_Proj.Items_Sell SET stock_qty = stock_qty + OLD.order_qty
+		WHERE item_id = OLD.item_id;
+END$$
+DELIMITER ;
+
+
+
+

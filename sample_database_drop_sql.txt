@@ -1,0 +1,9 @@
+DROP DATABASE Comp7640_Proj
+
+/*
+DROP TABLE Comp7640_Proj.Shops
+DROP TABLE Comp7640_Proj.Items_Sell
+DROP TABLE Comp7640_Proj.Customers
+DROP TABLE Comp7640_Proj.Orders_Purchase
+DROP TABLE Comp7640_Proj.Transactions
+*/
